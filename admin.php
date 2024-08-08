@@ -22,7 +22,7 @@ $result = $conn->query($sql);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin - Registration Details</title>
+    <title>Registration Details</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -73,31 +73,33 @@ $result = $conn->query($sql);
             <tr>
                 <th>ID</th>
                 <th>Name</th>
+                <th>College</th>
                 <th>Course</th>
                 <th>Semester</th>
-                <th>College</th>
-                <th>WhatsApp Number</th>
+                <th>WhatsAppNo</th>
                 <th>Contact Number</th>
                 <th>Photo ID</th>
-                <th>Events</th>
+                <th>RegistrationID</th>
+                <th>RegistrationDate</th>
             </tr>
             <?php
             if ($result->num_rows > 0) {
                 while($row = $result->fetch_assoc()) {
                     echo "<tr>";
-                    echo "<td>" . $row["id"] . "</td>";
-                    echo "<td>" . $row["name"] . "</td>";
-                    echo "<td>" . $row["course"] . "</td>";
-                    echo "<td>" . $row["semester"] . "</td>";
-                    echo "<td>" . $row["college"] . "</td>";
-                    echo "<td>" . $row["whatsapp"] . "</td>";
-                    echo "<td>" . $row["contact"] . "</td>";
-                    echo "<td><img src='uploads/" . $row["photo"] . "' alt='Photo'></td>";
-                    echo "<td>" . $row["events"] . "</td>";
+                    echo "<td>" . $row["SINO"] . "</td>";
+                    echo "<td>" . $row["Name"] . "</td>";
+                    echo "<td>" . $row["College"] . "</td>";
+                    echo "<td>" . $row["Course"] . "</td>";
+                    echo "<td>" . $row["Semester"] . "</td>";
+                    echo "<td>" . $row["WhatsappNo"] . "</td>";
+                    echo "<td>" . $row["PhoneNo"] . "</td>";
+                    echo "<td><img src='uploads/" . $row["IDPhoto"] . "' alt='Photo'></td>";
+                    echo "<td>" . $row["RegistrationID"] . "</td>";
+                    echo "<td>" . $row["RegistrationDate"] . "</td>";
                     echo "</tr>";
                 }
             } else {
-                echo "<tr><td colspan='9'>No registrations found</td></tr>";
+                echo "<tr><td colspan='10'>No registrations found</td></tr>";
             }
             $conn->close();
             ?>
